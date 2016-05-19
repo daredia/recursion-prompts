@@ -142,11 +142,51 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+  if (x > 0 && y > 0) {
+    if (x < y) {
+      return x;
+    }
+    return modulo(x - y, y);  
+  }
+  if (x < 0 && y > 0) {
+    if (x + y > 0) {
+      return x;
+    }
+    return modulo(x + y, y);
+  }
+  if (x < 0 && y < 0) {
+    if (x > y) {
+      return x;
+    }
+    return modulo(x - y, y);
+  }
+  if (x === 0 && y !== 0) {
+    return 0;
+  }
+  if (x === 0 && y === 0) {
+    return 'NaN';
+  }
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator  or
 // JavaScript's Math object.
-var multiply = function(x, y) {
+var multiply = function(x, y, initialize) {
+  if (initialize === undefined) {
+    console.log(x, y);
+    initialize = false;
+  }
+  
+  if (y === 1) {
+    return x;
+  }
+  if (x === 0 && y === 0) {
+    return 0;
+  }
+  if (x < 0 && y < 0) {
+    x = -x;
+    y = -y;
+  }
+  return x + multiply(x, y - 1, initialize);
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
