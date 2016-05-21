@@ -187,10 +187,6 @@ var multiply = function(x, y, initialize) {
 // 13. Write a function that divides two numbers without using the / operator  or
 // JavaScript's Math object.
 var divide = function(x, y, count) {
-  // if (initialize === undefined) {
-  //   console.log(x, y);
-  //   initialize = false;
-  // }
   var count = count || 0;
 
   if (x === 0) {
