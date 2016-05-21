@@ -212,8 +212,15 @@ var divide = function(x, y, count) {
 // Example:  gcd(4,36);  // 4
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
-var gcd = function(x, y) {
-
+var gcd = function(x, y, x2) {
+  if (x < 0 || y < 0) {
+    return null;
+  }
+  var x2 = x2 || x;
+  if (y % x2 === 0 && x % x2 === 0) {
+    return x2;
+  }
+  return gcd(x, y, x2 - 1);
 };
 
 // 15. Write a function that compares each character of two strings and returns true if
